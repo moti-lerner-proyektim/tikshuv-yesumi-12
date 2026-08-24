@@ -1,1 +1,0 @@
-# ikshuv-yesumi-12
