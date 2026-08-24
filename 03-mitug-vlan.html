@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מיתוג ורשתות מקומיות — ליווי פרויקט יב׳</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f6f0e3;
+    --cream-2:#efe7d5;
+    --ink:#1e2634;
+    --ink-soft:#4a5468;
+    --gold:#c9971f;
+    --gold-dark:#a97c14;
+    --line:#e2d8c1;
+    --card-bg:#ffffff;
+    --shadow:0 10px 30px rgba(30,38,52,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--cream);color:var(--ink);font-family:'Heebo',sans-serif;line-height:1.6;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 40px;border-bottom:1px solid var(--line);background:var(--cream);
+    flex-wrap:wrap;gap:10px;
+  }
+  .topbar .site-name{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:18px;}
+  .topbar .crumbs{font-size:14px;color:var(--ink-soft);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .topbar .crumbs a{color:var(--gold-dark);font-weight:600;}
+  .topbar .crumbs a:hover{text-decoration:underline;}
+
+  footer{border-top:1px solid var(--line);padding:26px 40px;text-align:center;font-size:13px;color:var(--ink-soft);}
+  footer a{color:var(--gold-dark);font-weight:600;}
+
+  .page-hero{max-width:1180px;margin:0 auto;padding:44px 40px 10px;}
+  .page-hero .tag{
+    display:inline-flex;align-items:center;gap:8px;background:var(--card-bg);border:1px solid var(--line);
+    border-radius:999px;padding:6px 16px;font-size:13px;color:var(--ink-soft);margin-bottom:18px;
+  }
+  .page-hero .tag .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);}
+  .page-hero h1{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:clamp(28px,4.4vw,44px);line-height:1.3;margin-bottom:16px;}
+  .page-hero p{max-width:820px;color:var(--ink-soft);font-size:16px;line-height:1.8;}
+
+  .part-wrap{max-width:1180px;margin:0 auto;padding:20px 40px 10px;}
+  .block-label{font-size:13px;font-weight:700;color:var(--gold-dark);text-transform:uppercase;letter-spacing:.5px;margin:26px 0 10px;}
+
+  .checklist-card{
+    background:var(--card-bg);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
+    padding:22px 26px;margin-bottom:8px;
+  }
+  .checklist-card ol{margin-inline-start:20px;display:flex;flex-direction:column;gap:8px;}
+  .checklist-card li{font-size:14.5px;color:var(--ink);}
+  .checklist-card li::marker{color:var(--gold-dark);font-weight:700;}
+  .checklist-card .form-note{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);font-size:13px;color:var(--ink-soft);}
+
+  .gems-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:8px;}
+  @media (max-width:820px){ .gems-grid{grid-template-columns:1fr;} }
+
+  .gem-link-card, .pres-link-card, .video-link-card{
+    display:flex;align-items:center;gap:16px;border:1px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);padding:22px 22px;transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .gem-link-card{background:linear-gradient(135deg,#4a3418,#6b4a1f);}
+  .pres-link-card{background:linear-gradient(135deg,#2e2a4d,#3d3766);padding:24px 26px;margin-bottom:18px;gap:18px;}
+  .video-link-card{background:linear-gradient(135deg,#1e2a3d,#2c3d55);padding:24px 26px;margin-bottom:18px;gap:18px;}
+  .gem-link-card:hover, .pres-link-card:hover, .video-link-card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(30,38,52,.2);}
+
+  .gem-link-icon, .pres-link-icon, .video-link-icon{
+    flex-shrink:0;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  }
+  .gem-link-icon{width:48px;height:48px;background:rgba(224,182,84,.22);color:#e0b654;}
+  .pres-link-icon{width:52px;height:52px;background:rgba(159,140,255,.2);color:#9f8cff;}
+  .video-link-icon{width:52px;height:52px;background:rgba(201,151,31,.18);color:var(--gold);}
+  .gem-link-icon svg{width:24px;height:24px;}
+  .pres-link-icon svg, .video-link-icon svg{width:26px;height:26px;}
+
+  .gem-link-body, .pres-link-body, .video-link-body{flex:1;}
+  .gem-link-part{font-size:11.5px;font-weight:700;color:#e0b654;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;}
+  .gem-link-title{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:16.5px;color:#f7f3e8;margin-bottom:4px;}
+  .gem-link-desc{font-size:13px;color:#e4d9c3;}
+  .pres-link-title, .video-link-title{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:18px;color:#f7f3e8;margin-bottom:4px;}
+  .pres-link-desc, .video-link-desc{font-size:13.5px;color:#c3cad6;}
+  .gem-link-arrow, .pres-link-arrow, .video-link-arrow{flex-shrink:0;width:22px;height:22px;}
+  .gem-link-arrow{color:#e0b654;}
+  .pres-link-arrow{color:#9f8cff;width:24px;height:24px;}
+  .video-link-arrow{color:var(--gold);width:24px;height:24px;}
+
+  .gem-link-card.soon, .pres-link-card.soon, .video-link-card.soon{
+    background:linear-gradient(135deg,#3a3f47,#4d535d);cursor:default;
+  }
+  .gem-link-card.soon:hover, .pres-link-card.soon:hover, .video-link-card.soon:hover{transform:none;box-shadow:var(--shadow);}
+  .gem-link-card.soon .gem-link-icon, .pres-link-card.soon .pres-link-icon, .video-link-card.soon .video-link-icon{
+    background:rgba(255,255,255,.12);color:#c7ccd4;
+  }
+  .gem-link-card.soon .gem-link-part{color:#c7ccd4;}
+  .gem-link-card.soon .gem-link-title, .pres-link-card.soon .pres-link-title, .video-link-card.soon .video-link-title{color:#eef0f3;}
+  .gem-link-card.soon .gem-link-desc, .pres-link-card.soon .pres-link-desc, .video-link-card.soon .video-link-desc{color:#b8bec8;}
+  .gem-link-card.soon .gem-link-arrow, .pres-link-card.soon .pres-link-arrow, .video-link-card.soon .video-link-arrow{color:#c7ccd4;}
+
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="crumbs">
+      <a href="https://moti-lerner-proyektim.github.io/">לומדים בעצמי</a> ‹
+      <a href="./">ליווי פרויקט יב'</a> ‹ מיתוג ורשתות מקומיות
+    </div>
+    <div class="site-name">תקשוב יישומי · כיתה יב'</div>
+  </div>
+
+  <div class="page-hero">
+    <div class="tag"><span class="dot"></span> מודול 3 מתוך 9 · סעיפים 33–44 בטופס הבדיקה</div>
+    <h1>מיתוג ורשתות מקומיות <span style="font-size:0.5em;color:var(--ink-soft);font-weight:500;">(VLANs, Trunking, VTP)</span></h1>
+    <p>הגדרות המיתוג הבסיסיות שעליהן נשענת כל הרשת: שמות והתחזות, טראנק ו-VTP, בניית VLAN ושיוך פורטים, Router on a Stick, ושלושת ההגדרות של DHCP ברמת הרכיב.</p>
+  </div>
+
+  <div class="part-wrap">
+    <div class="block-label">מה נדרש (מתוך טופס הבדיקה הרשמי)</div>
+    <div class="checklist-card">
+      <ol>
+          <li>מתן שם — פקודת hostname</li>
+          <li>הכנסת באנר — פקודת motd banner</li>
+          <li>הגדרת TRUNK (מצבים trunk ו-access)</li>
+          <li>הגדרת VTP (מצבים Server, Transparent, Client)</li>
+          <li>הגדרת רשתות VLAN</li>
+          <li>ביצוע שיוך פורטים לוילאנים</li>
+          <li>הגדרת dot1q בנתבים (Router on a Stick)</li>
+          <li>הגדרת כתובות ידניות בסניף מס' 1</li>
+          <li>הגדרת DHCP בנתב סניף מס' 3</li>
+          <li>הגדרת EXCLUDED DHCP (טווח כתובות שאינן מחולקות)</li>
+          <li>הגדרת כתובות ידניות בהתאם ל-excluded בכל השרתים</li>
+          <li>הגדרת פקודת HELPER לחלוקה באמצעות שרת DHCP ייעודי</li>
+      </ol>
+      <div class="form-note">סמנו וי בטופס הבדיקה שלכם על כל סעיף שהשלמתם בפועל במסמך הפרויקט — לא רק שהבנתם אותו.</div>
+    </div>
+
+    <div class="block-label">Gems — מנחה פרויקט מבוסס AI</div>
+    <div class="gems-grid">
+      <div class="gem-link-card soon">
+        <div class="gem-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg></div>
+        <div class="gem-link-body">
+          <div class="gem-link-part">Gem 1 מתוך 3</div>
+          <div class="gem-link-title">שמות, TRUNK ו-VTP</div>
+          <div class="gem-link-desc">סעיפים 33–36: hostname, באנר, טראנק ו-VTP</div>
+        </div>
+        <div class="gem-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </div>
+      <div class="gem-link-card soon">
+        <div class="gem-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg></div>
+        <div class="gem-link-body">
+          <div class="gem-link-part">Gem 2 מתוך 3</div>
+          <div class="gem-link-title">VLAN, שיוך פורטים ו-Router on a Stick</div>
+          <div class="gem-link-desc">סעיפים 37–39</div>
+        </div>
+        <div class="gem-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </div>
+      <div class="gem-link-card soon">
+        <div class="gem-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg></div>
+        <div class="gem-link-body">
+          <div class="gem-link-part">Gem 3 מתוך 3</div>
+          <div class="gem-link-title">DHCP, Excluded ו-IP Helper</div>
+          <div class="gem-link-desc">סעיפים 40–44</div>
+        </div>
+        <div class="gem-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+      </div>
+    </div>
+
+    <div class="block-label">מצגת וסרטון הסבר</div>
+    <div class="pres-link-card soon">
+      <div class="pres-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <div class="pres-link-body">
+        <div class="pres-link-title">מצגת — מיתוג ורשתות מקומיות</div>
+        <div class="pres-link-desc">בקרוב — יתעדכן כאן קישור למצגת המלווה</div>
+      </div>
+      <div class="pres-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+    </div>
+
+    <div class="video-link-card soon">
+      <div class="video-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3V9z"/></svg></div>
+      <div class="video-link-body">
+        <div class="video-link-title">סרטון הסבר — מיתוג ורשתות מקומיות</div>
+        <div class="video-link-desc">בקרוב — יתעדכן כאן קישור לסרטון ההסבר</div>
+      </div>
+      <div class="video-link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+    </div>
+  </div>
+  <div class="part-wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:6px;padding-bottom:40px;font-size:14px;font-weight:600;color:var(--gold-dark);">
+    <div><a href="04-shartey-reshet.html">מודול הבא: שרתים ושירותי רשת ארגוניים ›</a></div>
+    <div><a href="02-hakama-fizit.html">‹ מודול קודם: תשתית פיזית, כבילה וארונות תקשורת</a></div>
+  </div>
+
+  <footer>
+    חלק מפרויקט <a href="https://moti-lerner-proyektim.github.io/">לומדים בעצמי</a> · מוטי לרנר
+  </footer>
+
+</body>
+</html>
