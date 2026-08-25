@@ -144,6 +144,14 @@
   .download-btn svg{width:13px;height:13px;}
   .download-btn:hover{background:var(--gold);color:#fff;border-color:var(--gold);}
 
+  .file-row.pending{opacity:.55;}
+  .pending-tag{
+    display:inline-flex;align-items:center;font-size:12px;font-weight:600;
+    color:var(--ink-soft);background:var(--cream-2);
+    border:1px dashed var(--line);border-radius:999px;padding:7px 14px;
+    flex-shrink:0;
+  }
+
   .note-box{max-width:1180px;margin:0 auto 60px;padding:0 40px;}
   .note-box .inner{
     display:flex;gap:14px;align-items:flex-start;
@@ -229,41 +237,33 @@
               הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
             </a>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">עבודת גמר — דוגמה מס' 5</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/avodot/avoda-05.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">עבודת גמר — דוגמה מס' 6</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/avodot/avoda-06.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">עבודת גמר — דוגמה מס' 7</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/avodot/avoda-07.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">עבודת גמר — דוגמה מס' 8</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/avodot/avoda-08.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
         </ul>
       </div>
@@ -279,77 +279,61 @@
           </div>
         </div>
         <ul class="file-list">
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">מסמך — דוגמה 1</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/mismachim-vehanchayot/mismach-01.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">מסמך — דוגמה 2</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/mismachim-vehanchayot/mismach-02.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">מסמך — דוגמה 3</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/mismachim-vehanchayot/mismach-03.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">מסמך — דוגמה 4</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/mismachim-vehanchayot/mismach-04.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">מסמך — דוגמה 5</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/mismachim-vehanchayot/mismach-05.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">מסמך — דוגמה 6</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/mismachim-vehanchayot/mismach-06.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">מסמך — דוגמה 7</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/mismachim-vehanchayot/mismach-07.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">מסמך — דוגמה 8</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/mismachim-vehanchayot/mismach-08.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
         </ul>
       </div>
@@ -365,77 +349,61 @@
           </div>
         </div>
         <ul class="file-list">
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">תוכנית מבנה — דוגמה 1</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/tochniot-mivnim/tochnit-01.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">תוכנית מבנה — דוגמה 2</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/tochniot-mivnim/tochnit-02.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">תוכנית מבנה — דוגמה 3</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/tochniot-mivnim/tochnit-03.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">תוכנית מבנה — דוגמה 4</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/tochniot-mivnim/tochnit-04.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">תוכנית מבנה — דוגמה 5</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/tochniot-mivnim/tochnit-05.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">תוכנית מבנה — דוגמה 6</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/tochniot-mivnim/tochnit-06.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">תוכנית מבנה — דוגמה 7</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/tochniot-mivnim/tochnit-07.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">תוכנית מבנה — דוגמה 8</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/tochniot-mivnim/tochnit-08.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
         </ul>
       </div>
@@ -451,77 +419,61 @@
           </div>
         </div>
         <ul class="file-list">
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">קובץ — דוגמה 1</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/klali/klali-01.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">קובץ — דוגמה 2</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/klali/klali-02.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">קובץ — דוגמה 3</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/klali/klali-03.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">קובץ — דוגמה 4</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/klali/klali-04.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">קובץ — דוגמה 5</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/klali/klali-05.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">קובץ — דוגמה 6</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/klali/klali-06.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">קובץ — דוגמה 7</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/klali/klali-07.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
-          <li class="file-row">
+          <li class="file-row pending">
             <div class="file-info">
               <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M15 2v3h3"/></svg></div>
               <div class="file-text"><div class="file-name">קובץ — דוגמה 8</div><div class="file-type">PDF</div></div>
             </div>
-            <a class="download-btn" href="https://raw.githubusercontent.com/moti-lerner-proyektim/tikshuv-yesumi-12/main/downloads/klali/klali-08.pdf" download>
-              הורדה <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
-            </a>
+            <span class="pending-tag">ממתין להעלאה</span>
           </li>
         </ul>
       </div>
