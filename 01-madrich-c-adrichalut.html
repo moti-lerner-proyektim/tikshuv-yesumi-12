@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אדריכלות רשת — מפיזי ללוגי — מדריך לימוד · ליווי פרויקט הגמר בתקשוב כיתה יב׳</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700;900&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="madrich-engine.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="crumbs">
+      <a href="https://moti-lerner-proyektim.github.io/" id="mdCrHub">לומדים בעצמי</a> ‹
+      <a href="./" id="mdCrCourse">ליווי פרויקט הגמר בתקשוב</a> ‹
+      <a href="01-tichnun-vetiud.html" id="mdCrUnit">תכנון ותיעוד</a> ‹ <span id="mdCrHere">אדריכלות רשת — מפיזי ללוגי</span>
+    </div>
+    <div class="site-name" id="mdSite">ליווי פרויקט הגמר בתקשוב · כיתה יב׳</div>
+  </div>
+
+  <main class="md-shell">
+    <header class="md-hero">
+      <div class="av" aria-hidden="true"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8"><rect x="4" y="3" width="16" height="7" rx="1.5"/><rect x="4" y="14" width="16" height="7" rx="1.5"/><path d="M8 6.5h.01M8 17.5h.01"/></svg></div>
+      <div>
+        <div class="num" id="mdNum">מודול 1 · חלק ג׳ · סעיפים 7–9 · מדריך לימוד אינטראקטיבי</div>
+        <h1 id="mdTitle">אדריכלות רשת — מפיזי ללוגי</h1>
+        <p id="mdDesc">מאקרו-מזו-מיקרו, אחידות דו-קומתית, מטריצת חומרה ואמנת שיום, חוק ארבעת הפורטים, אינוונטר קצה, וסינתזה ל-CLI.</p>
+      </div>
+    </header>
+
+    <div class="md-progress" id="mdProgress" aria-hidden="true"></div>
+    <div class="md-progress-label"><span id="mdProgressText"></span><span class="md-tts-wrap"><span id="mdTtsBox" class="md-tts-wrap"></span><button id="mdRestart" type="button">להתחיל מחדש</button></span></div>
+
+    <div class="md-log" id="mdLog" aria-live="polite"></div>
+
+    <div class="md-cmds" id="mdCmds" aria-label="פקודות"></div>
+    <div class="md-input">
+      <textarea id="mdText" rows="1" placeholder="כתוב כאן תשובה או פקודה… (Enter לשליחה)" aria-label="תשובה או פקודה"></textarea>
+      <button id="mdSend" type="button">שליחה</button>
+    </div>
+    <div class="md-note" id="mdNote">ההתקדמות נשמרת רק בדפדפן שלך · לא נאסף שום מידע</div>
+  </main>
+
+<script>
+window.MADRICH = {
+ "title": "אדריכלות רשת — מפיזי ללוגי",
+ "persona": "עידן, אדריכל שמתרגם ארגונים לרשתות",
+ "story": "אחרי התרשים הארגוני, ממשיכים לשלב הבא: תכנון פיזי מדויק בבניין, בחירת חומרה תקנית, ומיפוי כל תחנת קצה לזהות ברורה. המשפט החדש שלי: <strong>\"התכנון הפיזי הוא הבסיס לכל הגדרה לוגית ב-CLI.\"<\/strong> מקרה הבוחן: חברת <strong>MSUS<\/strong> — יצרנית מחשבים וציוד תקשורת בדויה, עם 3 סניפים בישראל: תל אביב (מטה והנהלה), חיפה (טכנולוגיה ומעבדה), באר שבע (לוגיסטיקה ומחסן).",
+ "desc": "מאקרו-מזו-מיקרו, אחידות דו-קומתית, מטריצת חומרה ואמנת שיום, חוק ארבעת הפורטים, אינוונטר קצה, וסינתזה ל-CLI.",
+ "num": "מודול 1 · חלק ג׳ · סעיפים 7–9",
+ "emoji": "🏗️",
+ "next": {
+  "href": "01-madrich-d-drishot.html",
+  "title": "חלק ד׳: הגשר שבין העסק לטכנולוגיה",
+  "teaser": "דרישות הארגון וחלופות הנדסיות — סעיפים 10–11."
+ },
+ "stages": [
+  {
+   "title": "ה-DNA של הרשת: מאקרו, מזו, מיקרו",
+   "open": {
+    "q": "אם משנים <strong>תפקיד של עובד<\/strong> בתרשים הארגוני (מאקרו) — למה זה בהכרח משפיע גם על הגדרה ברמת המיקרו, כמו <strong>כתובת ה-IP<\/strong> שלו?",
+    "model": "כי ה-VLAN והכתובת <strong>נקבעים לפי התפקיד<\/strong>. תפקיד חדש ← אולי מחלקה אחרת ← VLAN אחר ← כתובת אחרת והרשאות אחרות."
+   },
+   "explain": [
+    "<p>סעיפים 7–9 הם לא \"מילוי טפסים\" — הם <strong>ה-DNA של הרשת<\/strong>. כל IP, VLAN ו-ACL בהמשך תלויים בהם. שלוש רמות:<\/p><table><tr><th>רמה<\/th><th>מה כוללת<\/th><\/tr><tr><td>🌍 <strong>מאקרו<\/strong><\/td><td>הארגון כולו — הסניפים והחיבורים ביניהם<\/td><\/tr><tr><td>🏢 <strong>מזו<\/strong><\/td><td>המבנה הפיזי — קומות, ארונות תקשורת, מתגים ונתבים<\/td><\/tr><tr><td>🖥️ <strong>מיקרו<\/strong><\/td><td>תחנת הקצה — המחשב, ה-VLAN, תת-הרשת והפורט<\/td><\/tr><\/table><p>שלוש הרמות חייבות להיות <strong>עקביות<\/strong>: שינוי באחת משתקף בשנייה.<\/p>"
+   ],
+   "visual": "<div class=\"md-flow\"><b>מאקרו — סניפים<\/b><i>←<\/i><b>מזו — קומות וחומרה<\/b><i>←<\/i><b>מיקרו — מחשב, VLAN, פורט<\/b><\/div>",
+   "example": "כמו תכנון עיר: תכנית מתאר (מאקרו), תשתית רחוב (מזו), כתובת הבית הבודד (מיקרו) — הכול חייב להתחבר להיגיון אחד.",
+   "again": "<p>שאל על כל החלטה: <strong>\"באיזו רמה היא?\"<\/strong> ו<strong>\"מה היא משנה ברמות האחרות?\"<\/strong><\/p>",
+   "simple": "<p>סניפים ← קומות וחומרה ← מחשב ופורט. <strong>שינוי למעלה = שינוי למטה<\/strong>.<\/p>",
+   "check": {
+    "q": "לאיזו רמה שייכים ארונות התקשורת והמתגים בקומה?",
+    "options": [
+     {
+      "t": "מזו",
+      "ok": true,
+      "fb": "נכון — המבנה הפיזי."
+     },
+     {
+      "t": "מאקרו",
+      "ok": false,
+      "fb": "מאקרו הוא הארגון והסניפים."
+     },
+     {
+      "t": "מיקרו",
+      "ok": false,
+      "fb": "מיקרו היא תחנת הקצה הבודדת."
+     }
+    ],
+    "hint": "הבניין עצמו.",
+    "why": "קומות, ארונות ומתגים הם רמת המזו."
+   },
+   "summary": [
+    "סעיפים 7–9 = ה-DNA של הרשת",
+    "מאקרו · מזו · מיקרו",
+    "עקביות בין הרמות"
+   ],
+   "homework": [
+    "תאר את הרשת שלך בשלוש הרמות.",
+    "תן דוגמה לשינוי במאקרו ולהשפעתו על המיקרו."
+   ]
+  },
+  {
+   "title": "סעיף 7 — הלוגיקה המרחבית: אחידות בין קומות",
+   "open": {
+    "q": "אם קומה 3 הייתה מקבלת פתאום <strong>שתי מדפסות<\/strong> במקום אחת — איך זה היה מסבך את הגדרת ה-VLANs, לעומת קומות זהות?",
+    "model": "כל קומה \"שונה\" דורשת <strong>הגדרות שונות<\/strong>. כשכל הקומות זהות — <strong>משכפלים<\/strong> הגדרות; כשאחת שונה — צריך לטפל בה בנפרד, ויש יותר מקום לטעות."
+   },
+   "explain": [
+    "<p>רשת ש<strong>ניתנת להרחבה<\/strong> (Scalable) דורשת <strong>סטנדרטיזציה<\/strong> של הקומות:<\/p><table><tr><th>קומה<\/th><th>עמדות<\/th><th>מדפסות<\/th><th>נקודות גישה (AP)<\/th><\/tr><tr><td>1 — מנכ\"ל ומכירות ארצי<\/td><td>8<\/td><td>1<\/td><td>1<\/td><\/tr><tr><td>2 — מנהל שיווק וטכנאי מעבדה<\/td><td>8<\/td><td>1<\/td><td>1<\/td><\/tr><\/table><p>זה לא מקרה: כשבכל קומה בדיוק \"Printer 1\" ו-\"WiFi 1\", קל <strong>לשכפל<\/strong> הגדרות אבטחה ו-VLANs לכל מתג — כל קומה \"מדברת\" באותה שפה.<\/p><p>✍️ <strong>זו העבודה שלך.<\/strong> המדריך מסביר ומכוון — את הנתונים, ההחלטות והניסוח בספר הפרויקט אתה כותב בעצמך.<\/p>"
+   ],
+   "example": "רשת בתי קפה שמעצבת כל סניף באותה תבנית — מכירים אחד, מכירים את כולם, וקל לתחזק את כולם.",
+   "again": "<p>אחידות היא לא \"חוסר יצירתיות\" — היא <strong>הנדסה<\/strong>: פחות חריגים = פחות תקלות.<\/p>",
+   "simple": "<p>כל הקומות <strong>באותה תבנית<\/strong> ← <strong>מעתיקים הגדרות<\/strong> בקלות.<\/p>",
+   "check": {
+    "q": "מה היתרון העיקרי של קומות זהות?",
+    "options": [
+     {
+      "t": "אפשר לשכפל הגדרות VLAN ואבטחה לכל מתג",
+      "ok": true,
+      "fb": "נכון."
+     },
+     {
+      "t": "צריך פחות מחשבים",
+      "ok": false,
+      "fb": "האחידות לא נוגעת לכמות."
+     },
+     {
+      "t": "לא צריך VLANs",
+      "ok": false,
+      "fb": "עדיין צריך — פשוט קל יותר להגדיר."
+     }
+    ],
+    "hint": "Scalable...",
+    "why": "אחידות מאפשרת שכפול הגדרות — קל ופחות טעויות."
+   },
+   "summary": [
+    "סטנדרטיזציה של קומות ← Scalable",
+    "אותו מספר עמדות, מדפסת ו-AP בכל קומה",
+    "שכפול הגדרות קל ובטוח"
+   ],
+   "homework": [
+    "תכנן את הקומות בסניף אחד שלך — עמדות, מדפסות, AP.",
+    "ודא שהקומות אחידות; אם לא — נמק את החריגה."
+   ]
+  },
+  {
+   "title": "סעיף 8 — מטריצת החומרה ואמנת השיום",
+   "open": {
+    "q": "מהשם <code>RTR-Core-TLV-M<\/code> — איזה חלק מספר על <strong>סוג הרכיב<\/strong>, ואיזה על <strong>המיקום<\/strong>?",
+    "model": "<code>RTR<\/code> — סוג (נתב). <code>Core<\/code> — תפקיד (ליבה). <code>TLV<\/code> — מיקום (תל אביב). <code>M<\/code> — תוספת (למשל ראשי)."
+   },
+   "explain": [
+    "<p><strong>מטריצת החומרה<\/strong> — מודלים תקניים של סיסקו לפי שלוש שכבות:<\/p><table><tr><th>שכבה<\/th><th>דגם<\/th><th>תפקיד<\/th><\/tr><tr><td>Routing/Core<\/td><td>נתב Cisco 1941<\/td><td>ליבת הניתוב של הסניף<\/td><\/tr><tr><td>Distribution<\/td><td>מתג רב-שכבתי 3650-24ps<\/td><td>ניהול תעבורה פנימית מהיר<\/td><\/tr><tr><td>Access<\/td><td>מתג Catalyst 1000 24-port<\/td><td>חיבור ציוד הקצה<\/td><\/tr><\/table>",
+    "<p><strong>אמנת שיום<\/strong> — מונעת טעויות בהגדרת OSPF ו-ACL. מבנה: <strong>[סוג][תפקיד][מיקום]<\/strong>.<\/p><table><tr><th>שם<\/th><th>פירוש<\/th><\/tr><tr><td><code>RTR-Edge-JLM-P<\/code><\/td><td>נתב, קצה, ירושלים, ראשי<\/td><\/tr><tr><td><code>MSW2-BRS<\/code><\/td><td>מתג רב-שכבתי 2, באר שבע<\/td><\/tr><tr><td><code>SW3-EIL<\/code><\/td><td>מתג גישה 3, אילת<\/td><\/tr><\/table>"
+   ],
+   "example": "מספרי דגם וסידורי במפעל: אם כל מכונה נקראת \"המכונה\", אף אחד לא יידע איזו תקולה. שם ברור חוסך זמן וטעויות.",
+   "again": "<p>שם טוב עונה בלי לפתוח את המכשיר על: <strong>מה זה?<\/strong> <strong>מה התפקיד?<\/strong> <strong>איפה זה?<\/strong><\/p>",
+   "simple": "<p>חומרה <strong>תקנית<\/strong> בכל סניף + שמות לפי <strong>סוג-תפקיד-מיקום<\/strong>.<\/p>",
+   "check": {
+    "q": "מה מציין השם <code>SW3-EIL<\/code>?",
+    "options": [
+     {
+      "t": "מתג גישה מספר 3 באילת",
+      "ok": true,
+      "fb": "נכון."
+     },
+     {
+      "t": "נתב ראשי באילת",
+      "ok": false,
+      "fb": "RTR מציין נתב; SW — מתג."
+     },
+     {
+      "t": "מתג רב-שכבתי בירושלים",
+      "ok": false,
+      "fb": "MSW מציין רב-שכבתי; EIL — אילת."
+     }
+    ],
+    "hint": "SW = ?, EIL = ?",
+    "why": "SW3 — מתג גישה 3; EIL — אילת."
+   },
+   "summary": [
+    "Core: 1941 · Distribution: 3650-24ps · Access: Catalyst 1000",
+    "שיום: [סוג][תפקיד][מיקום]",
+    "שמות עקביים ← פחות טעויות ב-OSPF וב-ACL"
+   ],
+   "homework": [
+    "בנה מטריצת חומרה לסניף אחד שלך.",
+    "תן שמות לפי האמנה לכל הנתבים והמתגים בסניף."
+   ]
+  },
+  {
+   "title": "חוק ארבעת הפורטים החופשיים",
+   "open": {
+    "q": "מתג של 24 פורטים <strong>מלא לגמרי<\/strong> בעמדות עבודה — 24 מתוך 24. מה הבעיה?",
+    "model": "אין מקום ל<strong>חיבור למתג הרב-שכבתי<\/strong> (Uplink), ל-Trunk, ליתירות או ל<strong>גידול עתידי<\/strong>. המתג \"תקוע\"."
+   },
+   "explain": [
+    "<p>בכל מתג גישה — <strong>ארבעת הפורטים האחרונים<\/strong> (בדרך כלל 21–24) שמורים, ולעולם לא מוקצים למשתמש רגיל:<\/p><ol><li><strong>Uplink<\/strong> — קישור למתג ה-Multilayer<\/li><li><strong>Trunk<\/strong> — ניתוב בין VLANs (Inter-VLAN)<\/li><li><strong>יתירות<\/strong> — מול Spanning Tree (STP)<\/li><li><strong>גידול עתידי<\/strong> (Future Growth)<\/li><\/ol><p>זו <strong>החלטת תכנון קבועה<\/strong> לכל מתג בפרויקט — לא החלטה מחדש בכל סניף.<\/p>"
+   ],
+   "example": "כמו שורת חניה לרכבי חירום: גם כשהחניון מלא — היא אף פעם לא מוקצית לרכב רגיל.",
+   "again": "<p>חשבון מהיר: מתג 24 פורטים = <strong>20 למשתמשים<\/strong> + <strong>4 שמורים<\/strong>. צריך יותר מ-20 עמדות? צריך מתג נוסף.<\/p>",
+   "simple": "<p>פורטים <strong>21–24<\/strong> — <strong>אסור<\/strong> למשתמשים. הם לחיבורים בין ציוד ולעתיד.<\/p>",
+   "check": {
+    "q": "בקומה יש 22 עמדות עבודה ומתג אחד של 24 פורטים. מה נכון לעשות?",
+    "options": [
+     {
+      "t": "להוסיף מתג נוסף — אפשר לחבר רק 20 עמדות למתג",
+      "ok": true,
+      "fb": "נכון — 4 פורטים שמורים."
+     },
+     {
+      "t": "לחבר את כל 22 העמדות ולהשאיר 2 פנויים",
+      "ok": false,
+      "fb": "זה מפר את חוק ארבעת הפורטים."
+     },
+     {
+      "t": "לחבר 24 עמדות",
+      "ok": false,
+      "fb": "אז אין Uplink בכלל."
+     }
+    ],
+    "hint": "24 − 4 = ?",
+    "why": "רק 20 פורטים זמינים למשתמשים; ל-22 עמדות צריך מתג נוסף."
+   },
+   "summary": [
+    "פורטים 21–24 שמורים בכל מתג גישה",
+    "Uplink · Trunk · יתירות STP · גידול עתידי",
+    "כלל קבוע לכל הפרויקט"
+   ],
+   "homework": [
+    "בדוק בכל מתג בפרויקט שלך שפורטים 21–24 פנויים.",
+    "חשב כמה מתגי גישה צריך בקומה עם 35 עמדות."
+   ]
+  },
+  {
+   "title": "סעיף 9 — אינוונטר קצה: מיפוי זהויות, לא רק חומרה",
+   "open": {
+    "q": "ב-PC 1 בתל אביב יושב <strong>המנכ\"ל<\/strong>, וב-PC 1 בחיפה יושב <strong>מנהל סניף<\/strong>. האם שניהם צריכים להיות באותו VLAN?",
+    "model": "<strong>לא<\/strong> — כי שיוך ה-VLAN נקבע לפי <strong>התפקיד<\/strong>, לא לפי שם המכשיר. \"PC 1\" הוא רק מספר; התפקידים שונים."
+   },
+   "explain": [
+    "<p>כל שורה באינוונטר נושאת <strong>תפקיד ארגוני<\/strong>, לא רק פריט חומרה. זהו \"מילון המונחים\" שממנו נבנים ה-VLANs. שלושה שדות:<\/p><table><tr><th>ציוד<\/th><th>תפקיד<\/th><th>מיקום<\/th><\/tr><tr><td>PC 1<\/td><td>מנכ\"ל הנציגות<\/td><td>קומה 1, תל אביב<\/td><\/tr><tr><td>PC 13<\/td><td>מנהל שיווק<\/td><td>קומה 1, תל אביב<\/td><\/tr><tr><td>PC 13–16<\/td><td>טכנאי חומרה / מחסן חלפים<\/td><td>קומה 2, באר שבע<\/td><\/tr><tr><td>Printer 1<\/td><td>מנהל סניף<\/td><td>קומה 1, חיפה<\/td><\/tr><\/table><p>⚠️ <strong>התפקיד<\/strong> — לא סוג המכשיר — קובע את שיוך ה-VLAN.<\/p><p>✍️ <strong>זו העבודה שלך.<\/strong> המדריך מסביר ומכוון — את הנתונים, ההחלטות והניסוח בספר הפרויקט אתה כותב בעצמך.<\/p>"
+   ],
+   "example": "כמו רשימת עובדים במסעדה: \"עובד 1\" ו\"עובד 2\" לא מספיק — צריך לדעת מי הטבח ומי המלצר, כי לכל אחד גישה שונה למטבח, לקופה ולמחסן.",
+   "again": "<p>שאל על כל שורה: <strong>\"מי יושב כאן, ומה מותר לו?\"<\/strong> — לא \"איזה מחשב זה\".<\/p>",
+   "simple": "<p>אינוונטר = <strong>מכשיר + תפקיד + מקום<\/strong>. התפקיד <strong>קובע את ה-VLAN<\/strong>.<\/p>",
+   "check": {
+    "q": "מה קובע לאיזה VLAN ישויך מחשב?",
+    "options": [
+     {
+      "t": "התפקיד הארגוני של מי שמשתמש בו",
+      "ok": true,
+      "fb": "נכון."
+     },
+     {
+      "t": "המספר שלו (PC 1, PC 2...)",
+      "ok": false,
+      "fb": "המספר הוא רק זיהוי — לא תפקיד."
+     },
+     {
+      "t": "דגם המחשב",
+      "ok": false,
+      "fb": "הדגם לא קובע הרשאות."
+     }
+    ],
+    "hint": "זהות, לא חומרה.",
+    "why": "שיוך ה-VLAN נקבע לפי התפקיד."
+   },
+   "summary": [
+    "אינוונטר: ציוד · תפקיד · מיקום",
+    "כל שורה = זהות ארגונית",
+    "התפקיד קובע את ה-VLAN"
+   ],
+   "homework": [
+    "בנה אינוונטר קצה לסניף אחד שלך — שלושת השדות.",
+    "סמן בכל שורה לאיזה VLAN היא תשויך, לפי התפקיד."
+   ]
+  },
+  {
+   "title": "סינתזה: מהתפקיד הארגוני עד שורת ה-CLI",
+   "open": {
+    "q": "מה קודם למה — קודם מגדירים <strong>VLAN<\/strong> ואז מחפשים לו תפקיד, או קודם <strong>תפקיד<\/strong> ורק אז משייכים ל-VLAN?",
+    "model": "קודם <strong>התפקיד<\/strong>. ה-VLAN נגזר ממנו — לא להפך."
+   },
+   "explain": [
+    "<p>שלושת הסעיפים מתחברים לצינור אחד:<\/p><div class=\"md-flow\"><b>תפקיד — מנכ\"ל (סעיף 9)<\/b><i>←<\/i><b>חומרה — PC 1<\/b><i>←<\/i><b>פורט — Fa0/1 (סעיף 8)<\/b><i>←<\/i><b>VLAN 12 — הנהלה<\/b><\/div><p>ובפועל ב-CLI:<\/p><pre><code>Switch# configure terminal\nSwitch(config)# interface FastEthernet0/1\nSwitch(config-if)# switchport mode access\nSwitch(config-if)# switchport access vlan 12<\/code><\/pre>",
+    "<p><strong>ארבעה חוקי ברזל:<\/strong><\/p><ol><li><strong>קומות אחידות<\/strong> — ניהול פשוט וניתן להרחבה<\/li><li><strong>שיום עקבי<\/strong> — זהות ברורה לכל רכיב<\/li><li><strong>ארבעת הפורטים<\/strong> — 21–24 ל-Uplink, יתירות וגידול<\/li><li><strong>זהויות ל-VLAN<\/strong> — כל שורה באינוונטר מגדירה גישה<\/li><\/ol>"
+   ],
+   "example": "כמו בניית בית: קודם יסודות וצנרת (תכנון פיזי), ורק אחר כך מחברים שקעים ללוח החשמל (הגדרה לוגית). אי אפשר לחבר שקע בלי תשתית מתחתיו.",
+   "again": "<p>ארבע פקודות, ארבע שאלות: <strong>מצב הגדרה<\/strong> · <strong>איזה פורט?<\/strong> · <strong>איזה סוג פורט?<\/strong> · <strong>לאיזה VLAN?<\/strong><\/p>",
+   "simple": "<p><strong>תפקיד ← מחשב ← פורט ← VLAN<\/strong>. קודם התכנון, אחר כך הקוד.<\/p>",
+   "check": {
+    "q": "איזו פקודה משייכת פורט ל-VLAN 12?",
+    "options": [
+     {
+      "t": "<code>switchport access vlan 12<\/code>",
+      "ok": true,
+      "fb": "נכון."
+     },
+     {
+      "t": "<code>switchport mode access<\/code>",
+      "ok": false,
+      "fb": "זו מגדירה את הפורט כפורט גישה — לא משייכת ל-VLAN."
+     },
+     {
+      "t": "<code>interface FastEthernet0/1<\/code>",
+      "ok": false,
+      "fb": "זו בוחרת את הפורט."
+     }
+    ],
+    "hint": "access vlan...",
+    "why": "<code>switchport access vlan 12<\/code> משייכת את הפורט ל-VLAN 12."
+   },
+   "summary": [
+    "תפקיד ← חומרה ← פורט ← VLAN",
+    "configure terminal · interface · switchport mode access · switchport access vlan",
+    "קומות אחידות · שיום · 4 פורטים · זהויות ל-VLAN"
+   ],
+   "homework": [
+    "כתוב את צינור \"תפקיד ← VLAN\" לשלושה עובדים בפרויקט שלך.",
+    "כתוב את פקודות ה-CLI לשיוך אחד מהם."
+   ]
+  }
+ ],
+ "unitTitle": "תכנון ותיעוד",
+ "id": "y12-01-c"
+};
+</script>
+<script src="madrich-engine.js"></script>
+</body>
+</html>

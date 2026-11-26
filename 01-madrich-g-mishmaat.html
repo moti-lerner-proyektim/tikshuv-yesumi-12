@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מהטבלה לקוד — משמעת ארגונית ואבטחה — מדריך לימוד · ליווי פרויקט הגמר בתקשוב כיתה יב׳</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700;900&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="madrich-engine.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="crumbs">
+      <a href="https://moti-lerner-proyektim.github.io/" id="mdCrHub">לומדים בעצמי</a> ‹
+      <a href="./" id="mdCrCourse">ליווי פרויקט הגמר בתקשוב</a> ‹
+      <a href="01-tichnun-vetiud.html" id="mdCrUnit">תכנון ותיעוד</a> ‹ <span id="mdCrHere">מהטבלה לקוד — משמעת ארגונית ואבטחה</span>
+    </div>
+    <div class="site-name" id="mdSite">ליווי פרויקט הגמר בתקשוב · כיתה יב׳</div>
+  </div>
+
+  <main class="md-shell">
+    <header class="md-hero">
+      <div class="av" aria-hidden="true"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div>
+        <div class="num" id="mdNum">מודול 1 · חלק ז׳ · סעיפים 13, 17–20 · מדריך לימוד אינטראקטיבי</div>
+        <h1 id="mdTitle">מהטבלה לקוד — משמעת ארגונית ואבטחה</h1>
+        <p id="mdDesc">מטבלה לקוד, אמנת שיום (Hostname), סיסמאות והפרדת סמכויות, מיפוי מיילים, מטריצת ACL, והגנה מול הבוחן.</p>
+      </div>
+    </header>
+
+    <div class="md-progress" id="mdProgress" aria-hidden="true"></div>
+    <div class="md-progress-label"><span id="mdProgressText"></span><span class="md-tts-wrap"><span id="mdTtsBox" class="md-tts-wrap"></span><button id="mdRestart" type="button">להתחיל מחדש</button></span></div>
+
+    <div class="md-log" id="mdLog" aria-live="polite"></div>
+
+    <div class="md-cmds" id="mdCmds" aria-label="פקודות"></div>
+    <div class="md-input">
+      <textarea id="mdText" rows="1" placeholder="כתוב כאן תשובה או פקודה… (Enter לשליחה)" aria-label="תשובה או פקודה"></textarea>
+      <button id="mdSend" type="button">שליחה</button>
+    </div>
+    <div class="md-note" id="mdNote">ההתקדמות נשמרת רק בדפדפן שלך · לא נאסף שום מידע</div>
+  </main>
+
+<script>
+window.MADRICH = {
+ "title": "מהטבלה לקוד — משמעת ארגונית ואבטחה",
+ "persona": "נדב, אדריכל המשמעת הארגונית",
+ "story": "הרשת הכי מתוכננת בעולם קורסת ברגע שאין לה משמעת אחידה. המשפט שלי: <strong>\"טבלה על נייר היא כוונה. שורת קוד ב-CLI היא מחויבות.\"<\/strong> פרויקט המופת של עומר בוימן (MSUS) בלט בזכות ארבע טבלאות שהפכו כוונות למנגנון אכיפה.",
+ "desc": "מטבלה לקוד, אמנת שיום (Hostname), סיסמאות והפרדת סמכויות, מיפוי מיילים, מטריצת ACL, והגנה מול הבוחן.",
+ "num": "מודול 1 · חלק ז׳ · סעיפים 13, 17–20",
+ "emoji": "🔐",
+ "next": null,
+ "finalReview": [
+  "פתיחת הפרויקט (1–4)",
+  "תרשים ארגוני (5–6)",
+  "פיזי ולוגי (7–9)",
+  "דרישות וחלופות (10–11)",
+  "כבילה (12)",
+  "כתובות (14–16)",
+  "שיום, סיסמאות, מיילים ו-ACL (13, 17–20)"
+ ],
+ "stages": [
+  {
+   "title": "מטבלה לניירת מחייבת — לקוד אוכף",
+   "open": {
+    "q": "למה בוחן יעדיף לראות טבלת הרשאות ש<strong>מתורגמת בפועל לשורות ACL<\/strong> בנתב, על פני טבלה יפה שלא מיושמת?",
+    "model": "כי טבלה לבד היא רק <strong>כוונה<\/strong>. רק כשהיא מיושמת בקוד — רואים שהתכנון <strong>באמת עובד<\/strong>."
+   },
+   "explain": [
+    "<p>ארבעת הסעיפים חולקים עיקרון: <strong>טבלה מובנית<\/strong> שמתעדת החלטה — אבל המטרה היא שהטבלה <strong>תהפוך לקוד<\/strong>:<\/p><table><tr><th>בטבלה<\/th><th>בקוד<\/th><\/tr><tr><td>שם רכיב<\/td><td><code>hostname<\/code> — מילה במילה<\/td><\/tr><tr><td>סיסמה \"מוצפנת\"<\/td><td>מוצפנת בפועל בתצורה<\/td><\/tr><tr><td>מייל למחלקה<\/td><td>עובד בפועל בשרת הדואר<\/td><\/tr><tr><td>\"אסור\" במטריצה<\/td><td>נחסם בפועל בשורת ACL<\/td><\/tr><\/table>"
+   ],
+   "example": "חוזה שכירות: \"אסור לעשן\" — זו הצהרה. גלאי עשן שמפעיל אזעקה — זו האכיפה.",
+   "again": "<p>הבוחן בודק: <strong>\"האם הטבלה היא הסיבה להתנהגות שאני רואה על המסך?\"<\/strong><\/p>",
+   "simple": "<p>טבלה = <strong>כוונה<\/strong>. קוד = <strong>מחויבות<\/strong>. צריך את שניהם — ושיתאימו.<\/p>",
+   "check": {
+    "q": "מה הבוחן בודק בטבלאות הסעיפים האלה?",
+    "options": [
+     {
+      "t": "שהן מתורגמות בפועל לתצורה ולהתנהגות ברשת",
+      "ok": true,
+      "fb": "נכון."
+     },
+     {
+      "t": "רק שהן מעוצבות יפה",
+      "ok": false,
+      "fb": "עיצוב לבד לא מספיק."
+     },
+     {
+      "t": "שהן ארוכות",
+      "ok": false,
+      "fb": "האורך לא העיקר — ההתאמה לקוד כן."
+     }
+    ],
+    "hint": "כוונה מול מחויבות.",
+    "why": "הטבלה צריכה להיות הסיבה המדויקת להתנהגות ברשת."
+   },
+   "summary": [
+    "טבלה = כוונה · קוד = מחויבות",
+    "שם ← hostname · סיסמה ← מוצפנת · מייל ← עובד · אסור ← ACL"
+   ],
+   "homework": [
+    "רשום את ארבע הטבלאות שתצטרך לסעיפים 13, 17–20.",
+    "ליד כל טבלה — איפה היא תופיע בקוד."
+   ]
+  },
+  {
+   "title": "אמנת שיום ארגונית (Hostname) — סעיף 13",
+   "open": {
+    "q": "לפי המוסכמה — איך תקצר את שם <strong>הנתב הראשי של סניף באר שבע<\/strong>?",
+    "model": "<code>RTR-BSH<\/code> — סוג (נתב) ואחריו זיהוי הסניף."
+   },
+   "explain": [
+    "<p>סעיף 13 — טבלה בת שלוש עמודות: <strong>שם מלא באנגלית · קיצור · תיאור בעברית<\/strong>. הקיצור משמש ישירות כ-<code>hostname<\/code>.<\/p><table><tr><th>חלק<\/th><th>ערכים<\/th><\/tr><tr><td>סוג חומרה<\/td><td><code>RTR<\/code> נתב · <code>MLS<\/code> מתג רב-שכבתי · <code>SW<\/code> מתג<\/td><\/tr><tr><td>סוג רשת (אם רלוונטי)<\/td><td><code>VLAN12<\/code> הנהלה · <code>VLAN84<\/code> IoT<\/td><\/tr><tr><td>סניף<\/td><td><code>TLV<\/code> תל אביב · <code>HFA<\/code> חיפה · <code>BSH<\/code> באר שבע<\/td><\/tr><\/table><pre><code>Router(config)# hostname RTR-TLV\nRTR-TLV(config)#<\/code><\/pre><p>מיד אחרי הפקודה — שם הרכיב בשורת הפקודה משתנה.<\/p>"
+   ],
+   "example": "\"קומה 3, חדר 12, אגף B\" — מקוד קצר יודעים מיד איפה נמצאים, בלי לשנן שם ארוך לכל חדר.",
+   "again": "<p>השם בטבלה וה-<code>hostname<\/code> בנתב חייבים להיות <strong>זהים — תו בתו<\/strong>. גם רווח או מקף שונה זה אי-התאמה.<\/p>",
+   "simple": "<p>שם = <strong>סוג-סניף<\/strong> (למשל <code>SW1-TLV<\/code>), ואותו שם ב-<code>hostname<\/code>.<\/p>",
+   "check": {
+    "q": "מה מציין <code>MLS-HFA<\/code>?",
+    "options": [
+     {
+      "t": "מתג רב-שכבתי בסניף חיפה",
+      "ok": true,
+      "fb": "נכון."
+     },
+     {
+      "t": "נתב בחיפה",
+      "ok": false,
+      "fb": "נתב מסומן RTR."
+     },
+     {
+      "t": "מתג רגיל בבאר שבע",
+      "ok": false,
+      "fb": "MLS הוא רב-שכבתי; HFA היא חיפה."
+     }
+    ],
+    "hint": "MLS = ?, HFA = ?",
+    "why": "MLS = Multilayer Switch; HFA = חיפה."
+   },
+   "summary": [
+    "טבלה: שם מלא · קיצור · תיאור",
+    "קיצור = hostname",
+    "סוג (RTR/MLS/SW) · רשת (VLAN) · סניף (TLV/HFA/BSH)"
+   ],
+   "homework": [
+    "בנה טבלת שיום לכל רכיבי הרשת בפרויקט שלך.",
+    "ודא שכל hostname בפאקט טרייסר זהה לטבלה."
+   ]
+  },
+  {
+   "title": "סיסמאות והפרדת סמכויות — סעיף 17",
+   "open": {
+    "q": "למה <code>enable secret<\/code> נחשבת בטוחה יותר מ-<code>enable password<\/code>, גם אם שתיהן מגינות על אותה גישה?",
+    "model": "<code>enable secret<\/code> <strong>מצפינה<\/strong> את הסיסמה בקובץ התצורה. <code>enable password<\/code> שומרת אותה <strong>כטקסט גלוי<\/strong> — כל מי שרואה את התצורה יכול לקרוא אותה."
+   },
+   "explain": [
+    "<p>סעיף 17 — טבלה בת ארבע עמודות: <strong>סניף · סוג גישה · משתמש · סיסמה<\/strong> — לערוצי Console, SSH ו-VTP.<\/p><p><strong>שתי דרישות אבטחה:<\/strong><\/p><pre><code>RTR-TLV(config)# enable secret &lt;סיסמה&gt;\nRTR-TLV(config)# service password-encryption<\/code><\/pre><table><tr><th>פקודה<\/th><th>מה עושה<\/th><\/tr><tr><td><code>enable secret<\/code><\/td><td>שומרת את הסיסמה כ-Hash (MD5) — לא כטקסט גלוי<\/td><\/tr><tr><td><code>service password-encryption<\/code><\/td><td>מצפינה גם סיסמאות נוספות שמוגדרות בטקסט רגיל<\/td><\/tr><\/table>",
+    "<p><strong>הפרדת סמכויות:<\/strong> לא אותה סיסמה לכל הערוצים ולכל הסניפים — <strong>כל שילוב (סניף × סוג גישה) — סיסמה משלו<\/strong>. פרצה בערוץ אחד לא חושפת את כל הרשת.<\/p>"
+   ],
+   "example": "בניין עם דלת ראשית, דלת חניה ודלת שירות — אם לכולן מפתח זהה, גניבת מפתח אחד פותחת את כל הבניין.",
+   "again": "<p>הצץ ב-<code>show running-config<\/code>: אם אתה רואה את הסיסמה כמו שהקלדת אותה — היא <strong>לא מוגנת<\/strong>.<\/p>",
+   "simple": "<p><strong>enable secret<\/strong> (לא password) + <strong>הצפנת סיסמאות<\/strong> + <strong>סיסמה אחרת לכל ערוץ<\/strong>.<\/p>",
+   "check": {
+    "q": "מה עושה <code>service password-encryption<\/code>?",
+    "options": [
+     {
+      "t": "מצפינה סיסמאות שמוגדרות בטקסט רגיל בקובץ התצורה",
+      "ok": true,
+      "fb": "נכון."
+     },
+     {
+      "t": "יוצרת סיסמה חדשה אוטומטית",
+      "ok": false,
+      "fb": "היא לא יוצרת סיסמאות."
+     },
+     {
+      "t": "מבטלת את כל הסיסמאות",
+      "ok": false,
+      "fb": "להפך — היא מגינה עליהן."
+     }
+    ],
+    "hint": "encryption = הצפנה.",
+    "why": "הפקודה מצפינה סיסמאות שנשמרות בטקסט גלוי."
+   },
+   "summary": [
+    "טבלה: סניף · גישה · משתמש · סיסמה (Console, SSH, VTP)",
+    "enable secret — מוצפן · enable password — גלוי",
+    "service password-encryption",
+    "סיסמה נפרדת לכל סניף × ערוץ"
+   ],
+   "homework": [
+    "בנה טבלת סיסמאות לפרויקט — סיסמה שונה לכל שילוב.",
+    "בדוק ב-show running-config שאין סיסמה גלויה."
+   ]
+  },
+  {
+   "title": "מיפוי זהויות והיררכיית הדואר — סעיפים 18–19",
+   "open": {
+    "q": "לפי המוסכמה <code>name@branch.department.domain<\/code> — מה תהיה כתובת המייל של עובד <strong>לוגיסטיקה<\/strong> בסניף <strong>באר שבע<\/strong> ב-MSUS?",
+    "model": "למשל <code>user@bsh.LOG.msus.org.il<\/code> — שם המשתמש, הסניף, המחלקה, ואז הדומיין הארגוני."
+   },
+   "explain": [
+    "<p>סעיפים 18–19 — טבלה בת שלוש עמודות: <strong>סניף · מחלקה/תפקיד · כתובת מייל ייחודית<\/strong>, לפי ההיררכיה (מנכ\"ל ← מחלקות ← תפקידים).<\/p><p>מוסכמה: הסניף והמחלקה כ<strong>תת-דומיין<\/strong> תחת הדומיין הארגוני — למשל <code>omer@tlv.CEO.msus.org.il<\/code>.<\/p><table><tr><th>פרוטוקול<\/th><th>פורט<\/th><th>תפקיד<\/th><\/tr><tr><td>SMTP<\/td><td>25<\/td><td>שליחת דואר<\/td><\/tr><tr><td>POP3<\/td><td>110<\/td><td>הורדת דואר למכשיר<\/td><\/tr><tr><td>IMAP<\/td><td>143<\/td><td>סנכרון בין כמה מכשירים<\/td><\/tr><\/table><p>⚠️ כל שורה חייבת להתאים ל<strong>רשומת ה-DNS<\/strong> ול<strong>תצורת שרת הדואר<\/strong> בפועל.<\/p>"
+   ],
+   "example": "כתובת דואר פיזי: לא מספיק שם על המעטפה — צריך רחוב, עיר ומיקוד. תת-הדומיין במייל ממלא את אותו תפקיד.",
+   "again": "<p>שאל: <strong>\"מהכתובת — אני יודע באיזה סניף ובאיזו מחלקה העובד?\"<\/strong> אם כן, המוסכמה עובדת.<\/p>",
+   "simple": "<p>מייל = <strong>שם @ סניף . מחלקה . דומיין<\/strong>. שליחה — SMTP, קבלה — POP3 או IMAP.<\/p>",
+   "check": {
+    "q": "עובד רוצה לקרוא את הדואר גם בטלפון וגם במחשב, מסונכרן. איזה פרוטוקול מתאים?",
+    "options": [
+     {
+      "t": "IMAP",
+      "ok": true,
+      "fb": "נכון — סנכרון בין מכשירים."
+     },
+     {
+      "t": "POP3",
+      "ok": false,
+      "fb": "POP3 מוריד את הדואר למכשיר אחד."
+     },
+     {
+      "t": "SMTP",
+      "ok": false,
+      "fb": "SMTP משמש לשליחה."
+     }
+    ],
+    "hint": "סנכרון.",
+    "why": "IMAP מסנכרן את תיבת הדואר בין כמה מכשירים."
+   },
+   "summary": [
+    "טבלה: סניף · תפקיד · מייל",
+    "מוסכמה: שם@סניף.מחלקה.דומיין",
+    "SMTP 25 · POP3 110 · IMAP 143",
+    "התאמה ל-DNS ולשרת הדואר"
+   ],
+   "homework": [
+    "בנה טבלת מיילים לכל התפקידים בפרויקט.",
+    "ודא שכל כתובת עובדת בפאקט טרייסר."
+   ]
+  },
+  {
+   "title": "מטריצת האבטחה: ACL ו-Firewall — סעיף 20",
+   "open": {
+    "q": "שכחת להוסיף שורת היתר בסוף רשימת ה-ACL. מה יקרה לכל התעבורה <strong>שלא הוזכרה<\/strong> במפורש?",
+    "model": "היא <strong>תיחסם<\/strong> — בגלל ה-<strong>Implicit Deny<\/strong>: בסוף כל ACL יש חסימה סמויה של כל מה שלא הותר."
+   },
+   "explain": [
+    "<p>סעיף 20 — מטריצה דו-ממדית: <strong>שורות = מחלקת מקור<\/strong>, <strong>עמודות = יעד<\/strong> (שרת כספים, IT, אתר, קבצים, דואר...). בכל תא: ✓ או ✗.<\/p><table><tr><th>עיקרון<\/th><th>מה זה<\/th><\/tr><tr><td>🔒 <strong>Least Privilege<\/strong><\/td><td>פותחים רק את מה שנדרש — ברירת המחדל היא איסור<\/td><\/tr><tr><td>👻 <strong>Implicit Deny<\/strong><\/td><td>בסוף כל ACL — חסימה סמויה של כל מה שלא הותר. אם רוצים שהשאר יעבור — חייבים שורת היתר מפורשת (למשל <code>permit ip any any<\/code>, או היתרים ממוקדים)<\/td><\/tr><\/table>",
+    "<table><tr><th>סוג<\/th><th>מסנן לפי<\/th><th>דוגמה<\/th><\/tr><tr><td><strong>Standard ACL<\/strong><\/td><td>כתובת <strong>מקור<\/strong> בלבד<\/td><td><code>access-list 10 deny 10.10.36.0 0.0.0.255<\/code><\/td><\/tr><tr><td><strong>Extended ACL<\/strong><\/td><td>מקור, יעד, <strong>פרוטוקול ופורט<\/strong><\/td><td><code>access-list 100 deny tcp any host 10.10.36.2 eq www<\/code><\/td><\/tr><\/table>"
+   ],
+   "example": "כרטיס ביקור בבניין מאובטח: נותן גישה בדיוק לקומות שהמבקר צריך. גם אם לא כתוב \"אסור למחסן הכספים\" — הדלת נעולה כברירת מחדל.",
+   "again": "<p>⚠️ מלכודת: <code>deny tcp ... eq www<\/code> — יש בה <strong>פרוטוקול ופורט<\/strong>, ולכן היא <strong>Extended<\/strong>, לא Standard.<\/p>",
+   "simple": "<p>פותחים <strong>רק מה שצריך<\/strong>. כל השאר <strong>נחסם לבד<\/strong> (Implicit Deny).<\/p>",
+   "check": {
+    "q": "רוצים לחסום רק <strong>גלישת HTTP<\/strong> משיווק לשרת מסוים, ולאפשר כל השאר. איזה ACL מתאים?",
+    "options": [
+     {
+      "t": "Extended — עם פרוטוקול, פורט, ושורת היתר בסוף",
+      "ok": true,
+      "fb": "נכון — Standard לא יודע לסנן לפי פורט."
+     },
+     {
+      "t": "Standard — לפי כתובת המקור בלבד",
+      "ok": false,
+      "fb": "Standard יחסום את כל התעבורה מהמקור, לא רק HTTP."
+     },
+     {
+      "t": "אין צורך ב-ACL",
+      "ok": false,
+      "fb": "בלי ACL אין חסימה."
+     }
+    ],
+    "hint": "צריך לסנן לפי פורט 80.",
+    "why": "רק Extended ACL מסנן לפי פרוטוקול ופורט; ושורת היתר בסוף מונעת חסימה של השאר."
+   },
+   "summary": [
+    "מטריצה: מקור × יעד, ✓/✗",
+    "Least Privilege · Implicit Deny",
+    "Standard — מקור בלבד · Extended — גם פרוטוקול ופורט",
+    "רוצים שהשאר יעבור? שורת היתר מפורשת"
+   ],
+   "homework": [
+    "בנה מטריצת הרשאות לפרויקט שלך.",
+    "כתוב את שורות ה-ACL לשתי שורות במטריצה — וציין Standard או Extended."
+   ]
+  },
+  {
+   "title": "רגע האמת: הגנה על הפרויקט מול הבוחן",
+   "open": {
+    "q": "הבוחן מראה לך <code>Request timed out<\/code> ב-Ping בין שתי מחלקות. מה <strong>שתי הפעולות<\/strong> שתעשה כדי להוכיח שזו תוצאה מכוונת ולא תקלה?",
+    "model": "<strong>להצביע<\/strong> על השורה במטריצת ההרשאות שאוסרת את התעבורה, ו<strong>להסביר<\/strong> איזו שורת ACL בנתב מממשת אותה — ולכן ה-Ping נכשל בכוונה."
+   },
+   "explain": [
+    "<p>הבוחן בודק אם <strong>הטבלה היא הסיבה<\/strong> להתנהגות על המסך. שתי טכניקות:<\/p><table><tr><th>טכניקה<\/th><th>מה עושים<\/th><\/tr><tr><td>👉 <strong>הצבעה<\/strong> (Point)<\/td><td>פותחים את המחשב הרלוונטי, מצביעים על השורה בטבלה, ומראים את אותה כתובת בתוצאת Ping<\/td><\/tr><tr><td>🗣️ <strong>ניסוח הנדסי<\/strong> (Explain)<\/td><td>\"זה לא עובד <strong>כי<\/strong> שורה X במטריצה אסרה את זה, ואנחנו רואים זאת בהיעדר תגובה\"<\/td><\/tr><\/table><p>הטבלאות הן <strong>ההוכחה<\/strong> שתכננת רשת אמיתית — ולא רק הרצת פקודות.<\/p>"
+   ],
+   "example": "תלמיד שמציג ניסוי: לא מספיק שהתוצאה נכונה — מראים את מחברת המדידות ומסבירים איזה שלב הוביל לתוצאה. המסך והנייר מספרים אותו סיפור.",
+   "again": "<p>המשפט שמנצח בבחינה: <strong>\"זה מכוון — הנה השורה בטבלה, והנה שורת הקוד שמממשת אותה.\"<\/strong><\/p>",
+   "simple": "<p><strong>מצביעים<\/strong> על הטבלה + <strong>מסבירים<\/strong> את הקוד = הוכחה.<\/p>",
+   "check": {
+    "q": "מה הופך \"Request timed out\" מ\"תקלה\" ל\"הוכחה\"?",
+    "options": [
+     {
+      "t": "קישור מפורש בין השורה במטריצה, שורת ה-ACL, והתוצאה על המסך",
+      "ok": true,
+      "fb": "נכון."
+     },
+     {
+      "t": "להגיד שזה עובד בבית",
+      "ok": false,
+      "fb": "זו לא הוכחה."
+     },
+     {
+      "t": "להריץ Ping שוב עד שיצליח",
+      "ok": false,
+      "fb": "אם החסימה מכוונת — זה לא אמור להצליח."
+     }
+    ],
+    "hint": "טבלה ← קוד ← מסך.",
+    "why": "ההוכחה היא שרשרת ברורה מהתכנון ועד התוצאה."
+   },
+   "summary": [
+    "הבוחן: האם הטבלה היא הסיבה למה שעל המסך?",
+    "Point — מצביעים על השורה ועל התוצאה",
+    "Explain — \"לא עובד כי שורה X אסרה\"",
+    "מודול 1 (סעיפים 1–20) שלם"
+   ],
+   "homework": [
+    "בחר שלוש בדיקות Ping בפרויקט שלך — אחת שמצליחה ושתיים שנחסמות — והכן הסבר לכל אחת.",
+    "תרגל עם חבר: הוא הבוחן, אתה מצביע ומסביר."
+   ]
+  }
+ ],
+ "unitTitle": "תכנון ותיעוד",
+ "id": "y12-01-g"
+};
+</script>
+<script src="madrich-engine.js"></script>
+</body>
+</html>
